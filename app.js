@@ -391,7 +391,7 @@ function renderNameScreen() {
         <input type="text" id="tournament-name-input" maxlength="${MAX_TOURNAMENT_NAME_LENGTH}" placeholder="Ex. : Coupe du vendredi" value="${escapeHtml(state.name)}">
         <button class="btn btn--full" id="continue-btn">Continuer</button>
       </div>
-      <button class="btn btn--ghost btn--spaced" data-action="import-menu">⬆ Importer un tournoi</button>
+      <button class="btn btn--ghost btn--spaced" data-action="import-menu">Importer un tournoi</button>
     </div>`;
 }
 
@@ -424,8 +424,8 @@ function renderPlayersScreen() {
       <div class="topbar">
         <h1>${escapeHtml(state.name)}</h1>
         <div class="row">
-          <button class="btn btn--ghost" data-action="export">⬇ Exporter</button>
-          <button class="btn btn--ghost" data-action="import">⬆ Importer</button>
+          <button class="btn btn--ghost" data-action="export">Exporter</button>
+          <button class="btn btn--ghost" data-action="import">Importer</button>
           <button class="btn btn--ghost" id="back-to-name-btn">Changer le nom</button>
         </div>
       </div>
@@ -435,7 +435,9 @@ function renderPlayersScreen() {
           ${playerList}
         </div>
         <div>
-          <p class="hint">Le tournoi va bientôt commencer ! Jusqu’à ${MAX_PLAYERS} joueurs. Au lancement, tu choisiras si le tableau suit l’ordre de cette liste ou si les places sont tirées au sort.</p>
+          <br>
+          <p class="hint">Le tournoi va bientôt commencer ! (${MAX_PLAYERS} joueurs max).<br>
+          Au lancement, tu choisiras si le tableau suit l’ordre de cette liste, ou si les places sont tirées au sort.</p>
           <div class="panel panel--flat">
             <h2>Nom du prochain joueur</h2>
             <div class="row">
@@ -482,9 +484,9 @@ function renderBracketScreen(rounds) {
         <h1>${escapeHtml(state.name)}</h1>
         <span class="progress-pill">${progress}</span>
         <div class="row">
-          <button class="btn btn--ghost" data-action="export">⬇ Exporter</button>
-          <button class="btn btn--ghost" data-action="import">⬆ Importer</button>
-          <button class="btn btn--ghost" id="redraw-btn">🎲 Nouveau tirage</button>
+          <button class="btn btn--ghost" data-action="export">Exporter</button>
+          <button class="btn btn--ghost" data-action="import">Importer</button>
+          <button class="btn btn--ghost" id="redraw-btn">Nouveau tirage</button>
           <button class="btn btn--ghost" id="back-to-players-btn">Modifier les joueurs</button>
           <button class="btn btn--ghost" id="new-tournament-btn">Nouveau tournoi</button>
         </div>
@@ -686,14 +688,14 @@ function getDialogContent() {
 				message:
 					"Suivre l’ordre de la liste : les joueurs s’affrontent deux par deux (1 contre 2, 3 contre 4, etc.). Si le nombre est impair ou n’est pas une puissance de 2, les derniers de la liste sont exemptés du premier tour. Sinon, les places sont tirées au sort.",
 				buttons: `<button class="btn" data-dialog-action="order">Suivre l’ordre de la liste</button>
-                  <button class="btn" data-dialog-action="shuffle">🎲 Mélanger au hasard</button>`,
+                  <button class="btn" data-dialog-action="shuffle">Tirer au sort</button>`,
 			};
 		case "import-menu":
 			return {
 				title: "Importer un tournoi",
 				message: "Choisis d’où vient l’export.",
-				buttons: `<button class="btn" data-dialog-action="file">📄 Depuis un fichier</button>
-                  <button class="btn" data-dialog-action="text">📋 Depuis du texte</button>`,
+				buttons: `<button class="btn" data-dialog-action="file">Depuis un fichier</button>
+                  <button class="btn" data-dialog-action="text">Depuis du texte</button>`,
 			};
 		case "paste":
 			return {
